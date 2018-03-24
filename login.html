@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WebPorco PetShop</title>
   <link rel="stylesheet" href="assets/stylesheets/styles.css" />
+  <link rel="stylesheet" href="assets/stylesheets/login.css" />
   <link rel="stylesheet" href="assets/stylesheets/font-awesome/css/font-awesome.min.css" />
 </head>
 
@@ -44,6 +45,36 @@
     </nav>
   </header>
 
+  <div class="limiter">
+    <div class="container-login">
+      <div class="wrap-login" style="padding-bottom: 90px; padding-top: 50px">
+        <form class="login-form validate-form">
+          <span class="login-form-title" style="padding-bottom: 51px;">
+            Login
+          </span>
+          <div class="wrap-input validate-inpu"t data-validate = "Informe o usuário" style="margin-bottom: 16px">
+            <input class="input" type="text" name="username" placeholder="Usuário">
+            <span class="focus-input"></span>
+          </div>
+          <div class="wrap-input validate-input" data-validate="Informe a senha" style="margin-bottom: 16px">
+            <input class="input" type="text" name="password" placeholder="Senha">
+            <span class="focus-input"></span>
+          </div>
+          <div style="padding-top: 3px; padding-bottom: 24px;">
+            <div class="contact-form-checkbox">
+              <input class="input-checkbox" type="checkbox" id="ckb1" name="remember-me">
+              <label class="label-checkbox" for="ckb1">Lembrar-me</label>
+            </div>
+            <div class="container-login-form-btn" style="margin-top: 17;">
+              <button class="login-form-btn">
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <h3>Copyright (c) 2018 Copyright Holder All Rights Reserved.</h3>
