@@ -183,6 +183,18 @@ textarea.input {
   background-color: #777777;
 }
 
+#redes{
+  color: black;
+  text-align: center;
+}
+
+#redes .fa {
+  text-align: center;
+  font-size: 1.1em;
+  color: black;
+}
+
+
 @media (max-width: 576px) {
   .wrap-contact {
     padding: 52px 15px 78px 15px;

@@ -1,0 +1,28 @@
+#animal {
+  display: inline-block;
+  background-color: yellow;
+  width: 30%;
+  margin:10% 0% 5% 35%;
+  padding: 3em 1.2em;
+  border-radius: 10px;
+}
+
+#animal h2 {
+  color: black;
+}
+
+#animal img {
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+#animal ul{
+  list-style:none;
+  margin-top: 2em;
+}
+
+#animal li {
+  color: #9b9e9c;
+  font-weight: bold;
+}

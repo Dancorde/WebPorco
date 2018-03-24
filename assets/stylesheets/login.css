@@ -90,3 +90,9 @@
   background-color: yellow;
   border-radius: 3px;
 }
+
+@media (max-width: 576px) {
+  .wrap-login {
+    padding: 52px 15px 78px 15px;
+  }
+}
