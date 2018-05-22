@@ -1,4 +1,6 @@
 body{
+  min-height: 75rem;
+  padding-top: 6rem;
   margin: 0%;
   font-family: 'Raleway', sans-serif;
 }
