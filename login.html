@@ -1,84 +1,52 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<nav id="pages">
+  <ul>
+    <li>
+      <a class="pag-itens" href="login.html">Entrar</a>
+    </li>
+    <li>
+      <a class="pag-itens" href="register.html">Cadastrar</a>
+    </li>
+    <li>
+      <a class="pag-itens" href="user.html">Minha conta</a>
+    </li>
+    <li>
+      <a class="pag-itens" href="shopcart.html">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a class="pag-itens" href="contact.html">Fale Conosco</a>
+    </li>
+  </ul>
+</nav>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WebPorco PetShop</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/login.css" />
-  <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" />
-</head>
-
-<body>
-  <header>
-    <a id="logo" href="index.html">
-      <h1>WebPorco petshop</h1>
-      <img id="logo-img" src="assets/images/logo.png" alt="icone" width="110px" height="60px" />
-    </a>
-    <form id="search-form">
-      <input class="search-bar" type="text" name="Pesquisar:" placeholder="Digite sua busca" size="30">
-      <button class="search-button" type="submit">
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </button>
-    </form>
-    <nav id="pages">
-      <ul>
-        <li>
-          <a class="pag-itens" href="login.html">Entrar</a>
-        </li>
-        <li>
-          <a class="pag-itens" href="register.html">Cadastrar</a>
-        </li>
-        <li>
-          <a class="pag-itens" href="user.html">Minha conta</a>
-        </li>
-        <li>
-          <a class="pag-itens" href="shopcart.html">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a class="pag-itens" href="contact.html">Fale Conosco</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="limiter">
-    <div class="container-login">
-      <div class="wrap-login" style="padding-bottom: 90px; padding-top: 50px">
-        <form class="login-form validate-form">
-          <span class="login-form-title" style="padding-bottom: 51px;">
-            Login
-          </span>
-          <div class="wrap-input validate-inpu"t data-validate = "Informe o usuário" style="margin-bottom: 16px">
-            <input class="input" type="text" name="username" placeholder="Usuário">
-            <span class="focus-input"></span>
+<div class="limiter">
+  <div class="container-login">
+    <div class="wrap-login" style="padding-bottom: 90px; padding-top: 50px">
+      <form class="login-form validate-form">
+        <span class="login-form-title" style="padding-bottom: 51px;">
+          Login
+        </span>
+        <div class="wrap-input validate-inpu"t data-validate = "Informe o usuário" style="margin-bottom: 16px">
+          <input class="input" type="text" name="username" placeholder="Usuário">
+          <span class="focus-input"></span>
+        </div>
+        <div class="wrap-input validate-input" data-validate="Informe a senha" style="margin-bottom: 16px">
+          <input class="input" type="text" name="password" placeholder="Senha">
+          <span class="focus-input"></span>
+        </div>
+        <div style="padding-top: 3px; padding-bottom: 24px;">
+          <div class="contact-form-checkbox">
+            <input class="input-checkbox" type="checkbox" id="ckb1" name="remember-me">
+            <label class="label-checkbox" for="ckb1">Lembrar-me</label>
           </div>
-          <div class="wrap-input validate-input" data-validate="Informe a senha" style="margin-bottom: 16px">
-            <input class="input" type="text" name="password" placeholder="Senha">
-            <span class="focus-input"></span>
+          <div class="container-login-form-btn" style="margin-top: 17;">
+            <button class="login-form-btn">
+              Login
+            </button>
           </div>
-          <div style="padding-top: 3px; padding-bottom: 24px;">
-            <div class="contact-form-checkbox">
-              <input class="input-checkbox" type="checkbox" id="ckb1" name="remember-me">
-              <label class="label-checkbox" for="ckb1">Lembrar-me</label>
-            </div>
-            <div class="container-login-form-btn" style="margin-top: 17;">
-              <button class="login-form-btn">
-                Login
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
-
-  <footer>
-    <h3>Copyright (c) 2018 Copyright Holder All Rights Reserved.</h3>
-  </footer>
-</body>
-
-</html>
+</div>
