@@ -45,27 +45,7 @@
       </div>
     </nav>
 
-    <div id="main" class="container">
-      <nav id="menu">
-        <ul>
-          <li>
-            <a class="menu-itens" href="index.html">Cachorros</a>
-          </li>
-          <li>
-            <a class="menu-itens" href="index.html">Gatos</a>
-          </li>
-          <li>
-            <a class="menu-itens" href="index.html">Peixes</a>
-          </li>
-          <li>
-            <a class="menu-itens" href="index.html">Outros</a>
-          </li>
-          <li>
-            <a class="menu-itens" href="index.html">Serviços</a>
-          </li>
-        </ul>
-
-      </nav>
+    <main id="main" class="container">
 
       <div id="destaques">
         <br>
@@ -84,16 +64,17 @@
         <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
       </div>
 
-    </div>
-    <footer class="default-primary-color">
-      <h3 class="text-primary-color">Copyright (c) 2018 Copyright Holder All Rights Reserved.</h3>
+    </main>
+    <footer class="footer default-primary-color">
+      <div class="container">
+        <h3 class="text-primary-color">Copyright (c) 2018 Copyright Holder All Rights Reserved.</h3>
+      </div>
     </footer>
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function changePage(page) {
-          $("#main").load(page+".html", function() {
-          });
+          $("#main").load(page+".html");
         }
 
     </script>
