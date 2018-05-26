@@ -10,3 +10,9 @@ Python versão 3.X
 ```console
 $ python -m http.server
 ```
+
+Com o servidor rodando basta digitar no browser
+
+```console
+localhost:8000
+```
