@@ -1,238 +1,203 @@
-<nav class="navbar navbar-expand-md fixed-top default-primary-color">
-  <a id="logo" href="#" onClick="changePage('home')">
-    <h1>WebPorco petshop</h1>
-    <img id="logo-img" src="assets/images/logo.png" alt="icone" width="110px" height="60px" />
-  </a>
-  <form id="search-form">
-    <input class="search-bar" type="text" name="Pesquisar:" placeholder="Digite sua busca" size="30">
-    <button class="search-button" type="submit">
-      <i class="fa fa-search" aria-hidden="true"></i>
-    </button>
-  </form>
-  <div id="pages">
-    <ul>
-      <li id="entrar">
-        <a class="pag-itens" href="#" onClick="changePage('login')">Entrar</a>
-      </li>
-      <li id="cadastrar">
-        <a class="pag-itens" href="#" onClick="changePage('register')">Cadastrar</a>
-      </li>
-      <li id="minhaConta" style="display: none;">
-        <a class="pag-itens" href="#" onClick="changePage('user')">Minha conta</a>
-      </li>
-      <li id="compras">
-        <a class="pag-itens" href="#" onClick="changePage('shopcart')">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        </a>
-      </li>
-      <li id="faleConosco">
-        <a class="pag-itens" href="#" onClick="changePage('contact')">Fale Conosco</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<script src="assets/js/scriptProduct.js"></script>
 
-<main id="main" class="container">
+<div class="container">
 
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-3">
-        <figure class="card card-product">
-          <div class="img-wrap">
-            <img src="/assets/images/racao.jpg">
-            <a class="btn-overlay" href="#">
-              <i class="fa fa-search-plus"></i> Quick view</a>
-          </div>
-          <figcaption class="info-wrap">
-            <h6 class="title text-dots">
-              <a href="#">Ração 1</a>
-            </h6>
-            <div class="action-wrap">
-              <a href="#" class=" btn btn-primary btn-sm float-right"> Order </a>
-              <div class="price-wrap h5">
-                <span class="price-new">R$80</span>
-                <del class="price-old">R$100</del>
-              </div>
-              <!-- price-wrap.// -->
-            </div>
-            <!-- action-wrap -->
-          </figcaption>
-        </figure>
-        <!-- card // -->
-      </div>
-      <!-- col // -->
-      <div class="col-md-3">
-        <figure class="card card-product">
-          <div class="img-wrap">
-            <img src="/assets/images/racao.jpg">
+  <div class="row">
+    <div class="col-md-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="assets/images/racao.jpg">
+          <a class="btn-overlay" href="#">
             <i class="fa fa-search-plus"></i> Quick view</a>
-          </div>
-          <figcaption class="info-wrap">
-            <h6 class="title text-dots">
-              <a href="#">The name of product</a>
-            </h6>
-            <div class="action-wrap">
-              <a href="#" class="btn btn-primary btn-sm float-right"> Order </a>
-              <div class="price-wrap h5">
-                <span class="price-new">$280</span>
-              </div>
-              <!-- price-wrap.// -->
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots">
+            <a href="#" id="nomeRacao1">Ração 1</a>
+          </h6>
+          <div class="action-wrap">
+            <a href="#" class=" btn btn-primary btn-sm float-right" id="orderRacao1"> Order </a>
+            <div class="price-wrap h5">
+              <span class="price-new" id="precoRacao1">R$80</span>
+              <del class="price-old">R$100</del>
             </div>
-            <!-- action-wrap -->
-          </figcaption>
-        </figure>
-        <!-- card // -->
-      </div>
-      <!-- col // -->
-      <div class="col-md-3">
-        <figure class="card card-product">
-          <div class="img-wrap">
-            <img src="/assets/images/racao.jpg">
-            <a class="btn-overlay" href="#">
-              <i class="fa fa-search-plus"></i> Quick view</a>
+            <!-- price-wrap.// -->
           </div>
-          <figcaption class="info-wrap">
-            <h6 class="title text-dots">
-              <a href="#">Name of product</a>
-            </h6>
-            <div class="action-wrap">
-              <a href="#" class="btn btn-primary btn-sm float-right"> Order </a>
-              <div class="price-wrap h5">
-                <span class="price-new">$280</span>
-              </div>
-              <!-- price-wrap.// -->
-            </div>
-            <!-- action-wrap -->
-          </figcaption>
-        </figure>
-        <!-- card // -->
-      </div>
-      <!-- col // -->
-      <div class="col-md-3">
-        <figure class="card card-product">
-          <div class="img-wrap">
-            <img src="/assets/images/racao.jpg">
-            <a class="btn-overlay" href="#">
-              <i class="fa fa-search-plus"></i> Quick view</a>
-          </div>
-          <figcaption class="info-wrap">
-            <h6 class="title text-dots">
-              <a href="#">The name of product</a>
-            </h6>
-            <div class="action-wrap">
-              <a href="#" class="btn btn-primary btn-sm float-right"> Order </a>
-              <div class="price-wrap h5">
-                <span class="price-new">$280</span>
-              </div>
-              <!-- price-wrap.// -->
-            </div>
-            <!-- action-wrap -->
-          </figcaption>
-        </figure>
-        <!-- card // -->
-      </div>
-      <!-- col // -->
+          <!-- action-wrap -->
+        </figcaption>
+      </figure>
+      <!-- card // -->
     </div>
-    <!-- row.// -->
-    <div class="row">
-      <div class="col-md-3">
-        <figure class="card card-product">
-          <div class="img-wrap">
-            <img src="/assets/images/racao.jpg">
-            <a class="btn-overlay" href="#">
-              <i class="fa fa-search-plus"></i> Quick view</a>
+    <!-- col // -->
+    <div class="col-md-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="assets/images/racao.jpg">
+          <i class="fa fa-search-plus"></i> Quick view</a>
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots">
+            <a href="#" id="nomeRacao2">Ração 2</a>
+          </h6>
+          <div class="action-wrap">
+            <a href="#" id="orderRacao2" class="btn btn-primary btn-sm float-right"> Order </a>
+            <div class="price-wrap h5">
+              <span class="price-new" id="precoRacao2">R$85</span>
+            </div <!-- price-wrap.// -->
           </div>
-          <figcaption class="info-wrap">
-            <h6 class="title text-dots">
-              <a href="#">Good item name</a>
-            </h6>
-            <div class="action-wrap">
-              <a href="#" class="btn btn-primary btn-sm float-right"> Order </a>
-              <div class="price-wrap h5">
-                <span class="price-new">$1280</span>
-                <del class="price-old">$1980</del>
-              </div>
-              <!-- price-wrap.// -->
-            </div>
-            <!-- action-wrap -->
-          </figcaption>
-        </figure>
-        <!-- card // -->
-      </div>
-      <!-- col // -->
-      <div class="col-md-3">
-        <figure class="card card-product">
-          <div class="img-wrap">
-            <img src="/assets/images/racao.jpg" <a class="btn-overlay" href="#">
+          <!-- action-wrap -->
+        </figcaption>
+      </figure>
+      <!-- card // -->
+    </div>
+    <!-- col // -->
+    <div class="col-md-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="assets/images/racao.jpg">
+          <a class="btn-overlay" href="#">
             <i class="fa fa-search-plus"></i> Quick view</a>
-          </div>
-          <figcaption class="info-wrap">
-            <h6 class="title text-dots">
-              <a href="#">The name of product</a>
-            </h6>
-            <div class="action-wrap">
-              <a href="#" class="btn btn-primary btn-sm float-right"> Order </a>
-              <div class="price-wrap h5">
-                <span class="price-new">$280</span>
-              </div>
-              <!-- price-wrap.// -->
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots">
+            <a href="#" id="nomeRacao3">Ração 3</a>
+          </h6>
+          <div class="action-wrap">
+            <a href="#" id="orderRacao3" class="btn btn-primary btn-sm float-right"> Order </a>
+            <div class="price-wrap h5">
+              <span class="price-new" id="precoRacao3">R$60</span>
             </div>
-            <!-- action-wrap -->
-          </figcaption>
-        </figure>
-        <!-- card // -->
-      </div>
-      <!-- col // -->
-      <div class="col-md-3">
-        <figure class="card card-product">
-          <div class="img-wrap">
-            <img src="/assets/images/racao.jpg">
-            <a class="btn-overlay" href="#">
-              <i class="fa fa-search-plus"></i> Quick view</a>
+            <!-- price-wrap.// -->
           </div>
-          <figcaption class="info-wrap">
-            <h6 class="title text-dots">
-              <a href="#">Name of product</a>
-            </h6>
-            <div class="action-wrap">
-              <a href="#" class="btn btn-primary btn-sm float-right"> Order </a>
-              <div class="price-wrap h5">
-                <span class="price-new">$280</span>
-              </div>
-              <!-- price-wrap.// -->
-            </div>
-            <!-- action-wrap -->
-          </figcaption>
-        </figure>
-        <!-- card // -->
-      </div>
-      <!-- col // -->
-      <div class="col-md-3">
-        <figure class="card card-product">
-          <div class="img-wrap">
-            <img src="/assets/images/racao.jpg">
-            <a class="btn-overlay" href="#">
-              <i class="fa fa-search-plus"></i> Quick view</a>
-          </div>
-          <figcaption class="info-wrap">
-            <h6 class="title text-dots">
-              <a href="#">The name of product</a>
-            </h6>
-            <div class="action-wrap">
-              <a href="#" class="btn btn-primary btn-sm float-right"> Order </a>
-              <div class="price-wrap h5">
-                <span class="price-new">$280</span>
-              </div>
-              <!-- price-wrap.// -->
-            </div>
-            <!-- action-wrap -->
-          </figcaption>
-        </figure>
-        <!-- card // -->
-      </div>
-      <!-- col // -->
+          <!-- action-wrap -->
+        </figcaption>
+      </figure>
+      <!-- card // -->
     </div>
-    <!-- row.// -->
-
+    <!-- col // -->
+    <div class="col-md-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="assets/images/racao.jpg">
+          <a class="btn-overlay" href="#">
+            <i class="fa fa-search-plus"></i> Quick view</a>
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots">
+            <a href="#" id="nomeRacao4">Ração 4</a>
+          </h6>
+          <div class="action-wrap">
+            <a href="#" id="orderRacao4" class="btn btn-primary btn-sm float-right"> Order </a>
+            <div class="price-wrap h5">
+              <span class="price-new" id="precoRacao4">R$90</span>
+            </div>
+            <!-- price-wrap.// -->
+          </div>
+          <!-- action-wrap -->
+        </figcaption>
+      </figure>
+      <!-- card // -->
+    </div>
+    <!-- col // -->
   </div>
+  <!-- row.// -->
+  <div class="row">
+    <div class="col-md-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="assets/images/racao.jpg">
+          <a class="btn-overlay" href="#">
+            <i class="fa fa-search-plus"></i> Quick view</a>
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots">
+            <a href="#" id="nomeRacao5">Ração 5</a>
+          </h6>
+          <div class="action-wrap">
+            <a href="#" id="orderRacao5" class="btn btn-primary btn-sm float-right"> Order </a>
+            <div class="price-wrap h5">
+              <span id="precoRacao5" class="price-new">R$100</span>
+              <del class="price-old">R$67</del>
+            </div>
+            <!-- price-wrap.// -->
+          </div>
+          <!-- action-wrap -->
+        </figcaption>
+      </figure>
+      <!-- card // -->
+    </div>
+    <!-- col // -->
+    <div class="col-md-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="assets/images/racao.jpg" <a class="btn-overlay" href="#">
+          <i class="fa fa-search-plus"></i> Quick view</a>
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots">
+            <a id="nomeRacao6" href="#">Ração 6</a>
+          </h6>
+          <div class="action-wrap">
+            <a id="orderRacao6" href="#" class="btn btn-primary btn-sm float-right"> Order </a>
+            <div class="price-wrap h5">
+              <span id="precoRacao6" class="price-new">R$50</span>
+            </div>
+            <!-- price-wrap.// -->
+          </div>
+          <!-- action-wrap -->
+        </figcaption>
+      </figure>
+      <!-- card // -->
+    </div>
+    <!-- col // -->
+    <div class="col-md-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="assets/images/racao.jpg">
+          <a class="btn-overlay" href="#">
+            <i class="fa fa-search-plus"></i> Quick view</a>
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots">
+            <a id="nomeRacao7" href="#">Ração 7</a>
+          </h6>
+          <div class="action-wrap">
+            <a href="#" id="orderRacao7" class="btn btn-primary btn-sm float-right"> Order </a>
+            <div class="price-wrap h5">
+              <span id="precoRacao7" class="price-new">R$97</span>
+            </div>
+            <!-- price-wrap.// -->
+          </div>
+          <!-- action-wrap -->
+        </figcaption>
+      </figure>
+      <!-- card // -->
+    </div>
+    <!-- col // -->
+    <div class="col-md-3">
+      <figure class="card card-product">
+        <div class="img-wrap">
+          <img src="assets/images/racao.jpg">
+          <a class="btn-overlay" href="#">
+            <i class="fa fa-search-plus"></i> Quick view</a>
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots">
+            <a id="nomeRacao8" href="#">Ração 8</a>
+          </h6>
+          <div class="action-wrap">
+            <a href="#" id="orderRacao8" class="btn btn-primary btn-sm float-right"> Order </a>
+            <div class="price-wrap h5">
+              <span id="precoRacao8" class="price-new">R$100</span>
+            </div>
+            <!-- price-wrap.// -->
+          </div>
+          <!-- action-wrap -->
+        </figcaption>
+      </figure>
+      <!-- card // -->
+    </div>
+    <!-- col // -->
+  </div>
+  <!-- row.// -->
+
+</div>

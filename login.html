@@ -1,31 +1,33 @@
+<script src="assets/js/scriptLogin.js"></script>
 
-<div class="limiter">
-  <div class="container-login">
-    <div class="wrap-login" style="padding-bottom: 90px; padding-top: 50px">
-      <form class="login-form validate-form">
-        <span class="login-form-title" style="padding-bottom: 51px;">
-          Login
-        </span>
-        <div class="wrap-input validate-inpu"t data-validate = "Informe o usuário" style="margin-bottom: 16px">
-          <input class="input" type="text" name="username" placeholder="Usuário">
-          <span class="focus-input"></span>
-        </div>
-        <div class="wrap-input validate-input" data-validate="Informe a senha" style="margin-bottom: 16px">
-          <input class="input" type="text" name="password" placeholder="Senha">
-          <span class="focus-input"></span>
-        </div>
-        <div style="padding-top: 3px; padding-bottom: 24px;">
-          <div class="contact-form-checkbox">
-            <input class="input-checkbox" type="checkbox" id="ckb1" name="remember-me">
-            <label class="label-checkbox" for="ckb1">Lembrar-me</label>
+
+<div class="row centered-form">
+  <div class="align-content-center col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4 ">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sign In!</h3>
+      </div>
+      <div class="panel-body">
+        <form role="form">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <input type="text" name="first_name" id="emailLogin" class="form-control input-sm" placeholder="Email">
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <input type="text" name="last_name" id="senhaLogin" class="form-control input-sm" placeholder="Senha">
+              </div>
+            </div>
           </div>
-          <div class="container-login-form-btn" style="margin-top: 17;">
-            <button class="login-form-btn">
-              Login
-            </button>
-          </div>
-        </div>
-      </form>
+
+          
+
+          <button type="button" value="Register" id="login" class="btn btn-info btn-block">Login</button>
+
+        </form>
+      </div>
     </div>
   </div>
 </div>
