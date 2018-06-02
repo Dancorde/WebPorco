@@ -8,9 +8,20 @@
     <link rel="stylesheet" href="assets/css/palette.css"/>
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/css/products.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+    <script>
+      function changePage(page) {
+        $("#main").load(page + ".html");
+        $("#main").load(page + ".html");
+      }    
+    </script>
+    
   </head>
 
   <body>
+    
     <nav class="navbar navbar-expand-md fixed-top default-primary-color">
       <a id="logo" href="#" onClick="changePage('home')">
         <h1>WebPorco petshop</h1>
@@ -24,60 +35,245 @@
       </form>
       <div id="pages">
         <ul>
-          <li>
+          <li id="userName" style="display: none;">
+            <a class="pag-itens" id="userNameText"></a>
+          </li>
+          <li id="userEmail" style="display: none;">
+            <a class="pag-itens" id="userEmailText"></a>
+          </li>
+          <li id ="entrar">
             <a class="pag-itens" href="#" onClick="changePage('login')">Entrar</a>
           </li>
-          <li>
+          <li id="cadastrar">
             <a class="pag-itens" href="#" onClick="changePage('register')">Cadastrar</a>
           </li>
-          <li>
+          <li id="minhaConta" style="display: none;">
             <a class="pag-itens" href="#" onClick="changePage('user')">Minha conta</a>
           </li>
-          <li>
+          <li id="compras" style="display: none;">
             <a class="pag-itens" href="#" onClick="changePage('shopcart')">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             </a>
           </li>
-          <li>
+          <li id="faleConosco" >
             <a class="pag-itens" href="#" onClick="changePage('contact')">Fale Conosco</a>
           </li>
+          
         </ul>
       </div>
     </nav>
 
     <main id="main" class="container">
 
-      <div id="destaques">
-        <br>
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
-        <img class="imgdestaque" src="assets/images/ração.jpg" alt="icone" width="200px" height="200px" />
+      <div class="container">        
+      
+        <div class="row">
+          <div class="col-md-3">
+            <figure class="card card-product">
+              <div class="img-wrap">
+                <img src="assets/images/racao.jpg">
+                <a class="btn-overlay" href="#">
+                  <i class="fa fa-search-plus"></i> Quick view</a>
+              </div>
+              <figcaption class="info-wrap">
+                <h6 class="title text-dots">
+                  <a href="#" id="nomeRacao1">Ração 1</a>
+                </h6>
+                <div class="action-wrap">
+                  <a href="#" class=" btn btn-primary btn-sm float-right" id="orderRacao1"> Order </a>
+                  <div class="price-wrap h5">
+                    <span class="price-new" id="precoRacao1">R$80</span>
+                    <del class="price-old">R$100</del>
+                  </div>
+                  <!-- price-wrap.// -->
+                </div>
+                <!-- action-wrap -->
+              </figcaption>
+            </figure>
+            <!-- card // -->
+          </div>
+          <!-- col // -->
+          <div class="col-md-3">
+            <figure class="card card-product">
+              <div class="img-wrap">
+                <img src="assets/images/racao.jpg" >
+                <i class="fa fa-search-plus"></i> Quick view</a>
+              </div>
+              <figcaption class="info-wrap">
+                <h6 class="title text-dots">
+                  <a href="#" id="nomeRacao2">Ração 2</a>
+                </h6>
+                <div class="action-wrap">
+                  <a href="#" id="orderRacao2" class="btn btn-primary btn-sm float-right"> Order </a>
+                  <div class="price-wrap h5">
+                    <span class="price-new" id="precoRacao2">R$85</span>
+                  </div
+                  <!-- price-wrap.// -->
+                </div>
+                <!-- action-wrap -->
+              </figcaption>
+            </figure>
+            <!-- card // -->
+          </div>
+          <!-- col // -->
+          <div class="col-md-3">
+            <figure class="card card-product">
+              <div class="img-wrap">
+                <img src="assets/images/racao.jpg">
+                <a class="btn-overlay" href="#">
+                  <i class="fa fa-search-plus"></i> Quick view</a>
+              </div>
+              <figcaption class="info-wrap">
+                <h6 class="title text-dots">
+                  <a href="#" id="nomeRacao3">Ração 3</a>
+                </h6>
+                <div class="action-wrap">
+                  <a href="#" id="orderRacao3" class="btn btn-primary btn-sm float-right"> Order </a>
+                  <div class="price-wrap h5">
+                    <span class="price-new" id="precoRacao3">R$60</span>
+                  </div>
+                  <!-- price-wrap.// -->
+                </div>
+                <!-- action-wrap -->
+              </figcaption>
+            </figure>
+            <!-- card // -->
+          </div>
+          <!-- col // -->
+          <div class="col-md-3">
+            <figure class="card card-product">
+              <div class="img-wrap">
+                <img src="assets/images/racao.jpg">
+                <a class="btn-overlay" href="#">
+                  <i class="fa fa-search-plus"></i> Quick view</a>
+              </div>
+              <figcaption class="info-wrap">
+                <h6 class="title text-dots">
+                  <a href="#" id="nomeRacao4">Ração 4</a>
+                </h6>
+                <div class="action-wrap">
+                  <a href="#" id="orderRacao4" class="btn btn-primary btn-sm float-right"> Order </a>
+                  <div class="price-wrap h5">
+                    <span class="price-new" id="precoRacao4">R$90</span>
+                  </div>
+                  <!-- price-wrap.// -->
+                </div>
+                <!-- action-wrap -->
+              </figcaption>
+            </figure>
+            <!-- card // -->
+          </div>
+          <!-- col // -->
+        </div>
+        <!-- row.// -->
+        <div class="row">
+          <div class="col-md-3">
+            <figure class="card card-product">
+              <div class="img-wrap">
+                <img src="assets/images/racao.jpg">
+                <a class="btn-overlay" href="#">
+                  <i class="fa fa-search-plus"></i> Quick view</a>
+              </div>
+              <figcaption class="info-wrap">
+                <h6 class="title text-dots">
+                  <a href="#" id="nomeRacao5" >Ração 5</a>
+                </h6>
+                <div class="action-wrap">
+                  <a href="#" id="orderRacao5" class="btn btn-primary btn-sm float-right"> Order </a>
+                  <div class="price-wrap h5">
+                    <span id="precoRacao5" class="price-new">R$100</span>
+                    <del class="price-old">R$67</del>
+                  </div>
+                  <!-- price-wrap.// -->
+                </div>
+                <!-- action-wrap -->
+              </figcaption>
+            </figure>
+            <!-- card // -->
+          </div>
+          <!-- col // -->
+          <div class="col-md-3">
+            <figure class="card card-product">
+              <div class="img-wrap">
+                <img src="assets/images/racao.jpg" <a class="btn-overlay" href="#">
+                <i class="fa fa-search-plus"></i> Quick view</a>
+              </div>
+              <figcaption class="info-wrap">
+                <h6 class="title text-dots">
+                  <a id="nomeRacao6" href="#">Ração 6</a>
+                </h6>
+                <div class="action-wrap">
+                  <a id="orderRacao6" href="#" class="btn btn-primary btn-sm float-right"> Order </a>
+                  <div class="price-wrap h5">
+                    <span id="precoRacao6" class="price-new">R$50</span>
+                  </div>
+                  <!-- price-wrap.// -->
+                </div>
+                <!-- action-wrap -->
+              </figcaption>
+            </figure>
+            <!-- card // -->
+          </div>
+          <!-- col // -->
+          <div class="col-md-3">
+            <figure class="card card-product">
+              <div class="img-wrap">
+                <img src="assets/images/racao.jpg">
+                <a class="btn-overlay" href="#">
+                  <i class="fa fa-search-plus"></i> Quick view</a>
+              </div>
+              <figcaption class="info-wrap">
+                <h6 class="title text-dots">
+                  <a  id="nomeRacao7" href="#">Ração 7</a>
+                </h6>
+                <div class="action-wrap">
+                  <a href="#" id="orderRacao7" class="btn btn-primary btn-sm float-right"> Order </a>
+                  <div class="price-wrap h5">
+                    <span id="precoRacao7" class="price-new">R$97</span>
+                  </div>
+                  <!-- price-wrap.// -->
+                </div>
+                <!-- action-wrap -->
+              </figcaption>
+            </figure>
+            <!-- card // -->
+          </div>
+          <!-- col // -->
+          <div class="col-md-3">
+            <figure class="card card-product">
+              <div class="img-wrap">
+                <img src="assets/images/racao.jpg">
+                <a class="btn-overlay" href="#">
+                  <i class="fa fa-search-plus"></i> Quick view</a>
+              </div>
+              <figcaption class="info-wrap">
+                <h6 class="title text-dots">
+                  <a id="nomeRacao8" href="#">Ração 8</a>
+                </h6>
+                <div class="action-wrap">
+                  <a href="#" id="orderRacao8" class="btn btn-primary btn-sm float-right"> Order </a>
+                  <div class="price-wrap h5">
+                    <span id="precoRacao8" class="price-new">R$100</span>
+                  </div>
+                  <!-- price-wrap.// -->
+                </div>
+                <!-- action-wrap -->
+              </figcaption>
+            </figure>
+            <!-- card // -->
+          </div>
+          <!-- col // -->
+        </div>
+        <!-- row.// -->
+      
       </div>
-
     </main>
-    <footer class="footer default-primary-color">
+    <!--  <footer class="footer default-primary-color">
       <div class="container">
         <h3 class="text-primary-color">Copyright (c) 2018 Copyright Holder All Rights Reserved.</h3>
       </div>
-    </footer>
-    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        function changePage(page) {
-          $("#main").load(page+".html");
-        }
-
-    </script>
+    </footer> -->
+    
   </body>
 
 </html>
