@@ -2,16 +2,15 @@
   "name": "Web-Porco",
   "description": "Web Porco - Trabalho de Web",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "morgan": "~1.9.0"
+    "http-errors": "~1.6.2"
   }
 }
