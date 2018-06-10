@@ -6,6 +6,12 @@ Antes de inicializar o servidor é necessário instalar todas as dependências d
 $ npm install
 ```
 
+Para popular o banco de dados com alguns produtos digite o seguinte comando
+
+```console
+$ node product-seeder.js
+```
+
 Para inicializar o servidor usamos o seguinte comando:
 
 ```console
