@@ -1,15 +1,21 @@
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="card no-gutters">
-      <img class="card-img-top img-fluid" src="https://images.unsplash.com/photo-1508397426994-fcb4d80a41d0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=550bef85bf7b92a8547fb35d8c523456&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div class="clearfix">
-          <div class="price float-left">R$10,00</div>
-          <a href="#" class="btn btn-success float-right">Go somewhere</a>
+{{# each products }}
+  <div class="row">
+    {{# each this }}
+      <div class="col-sm-6 col-md-4">
+        <div class="card">
+          <div class="card-header text-center">
+            <h5 class="card-title">{{ this.name }}</h5>
+          </div>
+          <img class="card-img-top" src="{{ this.imagePath }}" alt="...">
+          <div class="card-body">
+            <p class="card-text">{{ this.description }}</p>
+          </div>
+          <div class="card-footer clearfix">
+            <div class="price float-left">R${{ this.price }}</div>
+            <a href="#" class="btn btn-success float-right" role="button">Comprar</a>
+          </div>
         </div>
       </div>
-    </div>
+    {{/each}}
   </div>
-</div>
+{{/each}}
