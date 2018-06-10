@@ -1,18 +1,19 @@
 # WebPorco
 
-Para inicializar o servidor digite no terminal
+Antes de inicializar o servidor é necessário instalar todas as dependências digitando no console
 
-Python versão 2.X
 ```console
-$ python -m SimpleHTTPServer
+$ npm install
 ```
-Python versão 3.X
+
+Para inicializar o servidor usamos o seguinte comando:
+
 ```console
-$ python3 -m http.server
+$ npm start
 ```
 
 Com o servidor rodando basta digitar no browser
 
 ```console
-localhost:8000
+localhost:3000
 ```

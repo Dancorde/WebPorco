@@ -1,16 +1,29 @@
 {
-  "name": "Web-Porco",
-  "description": "Web Porco - Trabalho de Web",
+  "name": "web-porco",
+  "description": "Trabalho de Web",
   "version": "0.0.1",
-  "private": false,
+  "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./bin/www"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dancorde/WebPorco.git"
+  },
+  "author": "Danilo, Eduardo e Giovanni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dancorde/WebPorco/issues"
+  },
+  "homepage": "https://github.com/Dancorde/WebPorco#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
-    "ejs": "~2.5.7",
+    "debug": "~2.6.9",
     "express": "~4.16.0",
-    "http-errors": "~1.6.2"
+    "express-handlebars": "^3.0.0",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0"
   }
 }
