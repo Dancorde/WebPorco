@@ -18,12 +18,21 @@
           Minha Conta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/user/signup">
-            Resgistrar-se
-          </a>
-          <a class="dropdown-item" href="#">
-            Entrar
-          </a>
+          {{# if login }}
+            <a class="dropdown-item" href="/user/profile">
+              Minha conta
+            </a>
+            <a class="dropdown-item" href="/user/logout">
+              Sair
+            </a>
+          {{ else }}
+            <a class="dropdown-item" href="/user/signup">
+              Resgistrar-se
+            </a>
+            <a class="dropdown-item" href="/user/signin">
+              Entrar
+            </a>
+          {{/if}}
         </div>
       </li>
 
