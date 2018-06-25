@@ -3,6 +3,7 @@ var router = express.Router();
 var Cart = require('../models/cart');
 var Product = require('../models/product');
 var Order = require('../models/order');
+var Pet = require('../models/pet');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -41,8 +42,8 @@ router.get('/reduce/:id', function(req, res, next) {
     }
     cart.reduceByOne(productId);
     req.session.cart = cart;
-    // res.redirect('/shopping-cart');
-    res.send({product: product, productsCart: cart.generateArray(), totalPrice: cart.totalPrice});
+    res.redirect('/shopping-cart');
+    // res.send({product: product, productsCart: cart.generateArray(), totalPrice: cart.totalPrice});
   });
 });
 
@@ -58,8 +59,8 @@ router.get('/remove/:id', function(req, res, next) {
 
     cart.removeItem(productId);
     req.session.cart = cart;
-    // res.redirect('/shopping-cart');
-    res.send({product: product, productsCart: cart.generateArray(), totalPrice: cart.totalPrice});
+    res.redirect('/shopping-cart');
+    // res.send({product: product, productsCart: cart.generateArray(), totalPrice: cart.totalPrice});
   });
 
 });
