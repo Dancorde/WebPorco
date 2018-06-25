@@ -1,0 +1,9 @@
+.card {
+  min-height: 400px;
+}
+
+.card img{
+  width: 150px;
+  height: 100%;
+  align-self: center;
+}
