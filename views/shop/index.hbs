@@ -2,7 +2,7 @@
   <div class="row">
     {{# each this }}
       <div class="col-sm-6 col-md-4">
-        <div class="card">
+        <div class="card prod">
           <div class="card-header text-center">
             <h5 class="card-title">{{ this.name }}</h5>
           </div>
@@ -20,3 +20,10 @@
     {{/each}}
   </div>
 {{/each}}
+
+<div class="input-group date" data-provide="datepicker" id="divData">
+    <input type="text" class="form-control boxSizeDefault" id="datepicker" placeholder="Data da Consulta">
+    <div class="input-group-addon">
+      <span class="glyphicon glyphicon-th"></span>
+    </div>
+</div>
