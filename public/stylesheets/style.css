@@ -7,3 +7,8 @@
   height: 100%;
   align-self: center;
 }
+
+.scroll {
+  height:450px;
+  overflow-y: scroll;
+}

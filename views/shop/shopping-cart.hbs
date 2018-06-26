@@ -1,42 +1,49 @@
+<h1 class="text-center">Meu Carrinho</h1>
+<br>
 {{# if products }}
-  <div class="row">
+  <div class="row justify-content-center align-items-center">
     <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-      <ul class="list-group">
-        {{# each products }}
-          <li class="list-group-item">
-            <span class="badge badge-info float-right m-2">{{this.qty}}</span>
-            <strong>{{this.item.name}}</strong>
-            <span class="label label-success">{{this.price}}</span>
-            <div class="btn-group">
-              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Ação <span class="caret"></span>
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="/reduce/{{this.item._id}}">Remover 1</a>
-                <a class="dropdown-item" href="/remove/{{this.item._id}}">Remover todos</a>
+      <div class="card">
+        <div class="card-body">
+          <ul class="list-group">
+            {{# each products }}
+            <li class="list-group-item">
+              <span class="badge badge-info float-right m-2">{{this.qty}}</span>
+              <strong>{{this.item.name}}</strong>
+              <span class="label label-success">R${{this.price}}</span>
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Ação <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/reduce/{{this.item._id}}">Remover 1</a>
+                  <a class="dropdown-item" href="/remove/{{this.item._id}}">Remover todos</a>
+                </div>
               </div>
-            </div>
-          </li>
-        {{/each}}
-      </ul>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="card-footer">
+          <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <strong>Total: R${{totalPrice}}</strong>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="row">
+  <br>
+
+  <div class="row text-center justify-content-center align-items-center">
     <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-      <strong>Total: {{totalPrice}}</strong>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-      <a href="/checkout" type="button"class="btn btn-success">Chekcout</a>
+      <a href="/checkout" type="button"class="btn btn-success">Finalizar compra</a>
     </div>
   </div>
 {{ else }}
-  <div class="row">
+  <div class="row text-center">
     <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-      <h2>Nenhum item no carrinho</h2>
+      <h2 class="text-center">Nenhum item no carrinho</h2>
     </div>
   </div>
 {{/if}}
