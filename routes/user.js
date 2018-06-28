@@ -4,6 +4,7 @@ var csrf = require('csurf');
 var passport = require('passport');
 
 var Order = require('../models/order');
+var Service = require('../models/service');
 var Cart = require('../models/cart');
 
 var csrfProtection = csrf();
@@ -21,6 +22,21 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
     });
     res.render('user/profile', { orders: orders, user: req.user });
   }).sort({_id: -1});
+});
+
+router.post('/service', function(req, res, next) {
+  var service = new Service({
+    user: req.user,
+    name: req.body.nomeCliente,
+    pet: req.body.nomePet,
+    phone: req.body.contatoCliente,
+    service: req.body.select,
+    date: req.body.calendario
+  });
+  order.service(function(err, result){
+    req.flash('success', 'Serviço agendado com sucesso.');
+    res.redirect('/profile');
+  });
 });
 
 router.get('/logout', isLoggedIn, function (req, res, next) {

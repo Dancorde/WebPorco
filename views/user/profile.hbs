@@ -7,9 +7,7 @@
     <p><i class="fa fa-envelope" aria-hidden="true"></i> {{user.email}}</p>
     <p><i class="fa fa-map-marker-alt" aria-hidden="true"></i> {{user.address}}</p>
     <p><i class="fa fa-phone" aria-hidden="true"></i> {{user.phone}}</p>
-    <p><a class="service-link" type="button" data-toggle="modal" data-target="#ServicesModal">
-      <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> Agendar Serviço
-    </a></p>
+    <button class="btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#ServicesModal">Agendar Serviço</button>
   </div>
   <div class="col-md-8 col-md-offset-2">
     <div class="card">
@@ -17,9 +15,6 @@
         <ul class="nav nav-tabs card-header-tabs pull-right"  id="myTab" role="tablist">
           <li class="nav-item">
            <a class="nav-link active" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="true">Meus Pedidos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="pets-tab" data-toggle="tab" href="#pets" role="tab" aria-controls="pets" aria-selected="false">Meus Pets</a>
           </li>
         </ul>
       </div>
@@ -33,7 +28,7 @@
                     {{# each this.items }}
                       <li class="list-group-item">
                         {{ this.qty }} | {{ this.item.name }}
-                        <span class="badge badge-info float-right m-2">{{ this.price }}</span>
+                        <span class="badge badge-success float-right m-2">R${{ this.price }}</span>
                       </li>
                     {{/each}}
                   </ul>
@@ -44,9 +39,6 @@
               </div>
               <br>
             {{/each}}
-          </div>
-          <div class="tab-pane fade" id="pets" role="tabpanel" aria-labelledby="pets-tab">
-            PETS
           </div>
         </div>
       </div>
@@ -65,48 +57,40 @@
       <div class="modal-body">
 
         <div class="row col-md-8" id="formulario">
-        		<div class="form-inline marginDefault">
-        			<div class="form-group" id="divCliente">
-        				<label for="nomeCliente">Nome Cliente</label><br>
-        				<input id="nomeCliente" type="text" class="form-control boxSizeDefault" placeholder="Digite o nome do Cliente"></input><br>
-        			</div>
-        			<div class="form-group" id="divPet">
-        				<label for="nomePet">Nome Pet</label><br>
-        				<input class="form-control boxSizeDefault" id="nomePet" placeholder="Nome do Pet"></input><br>
-        			</div>
-        		</div>
-        		<div class="form-inline marginDefault">
-        			<div class="form-group" id="divCliente">
-        				<label for="contatoCliente">Fone Contato</label><br>
-        				<input id="contatoCliente" type="text" class="form-control boxSizeDefault" placeholder="(XX) XXXXX-XXXX"></input><br>
-        			</div>
-
-        		</div>
-        		<div class="form-inline marginDefault" id="divConsulta">
-        			<div class="form-group">
-        				<label for="consultaTipo">Tipo do Serviço</label><br>
-        				<select class="form-control" id="select">
-        					<option value="1">Banho e tosa</option>
-        					<option value="2">Consulta com Veterinario</option>
-        					<option value="3">Adestramento</option>
-        					<option value="4">Castração</option>
-        				</select>
-        			</div>
-              <br><br>
-              <div class="input-group date" id="divData">
-        			    <input type="date" class="form-control boxSizeDefault" id="calendario2" placeholder="Data da Consulta">
-        			    <div class="input-group-addon">
-        				    <span class="glyphicon glyphicon-th"></span>
-        		    	</div>
-        			</div>
-        		</div>
-        		<br>
+    			<div class="form-group" id="divCliente">
+    				<label for="nomeCliente">Nome Cliente: </label>
+    				<input id="nomeCliente" type="text" class="form-control boxSizeDefault" placeholder="Digite o nome do Cliente"></input>
+    			</div>
+    			<div class="form-group" id="divPet">
+    				<label for="nomePet">Nome Pet: </label>
+    				<input class="form-control" id="nomePet" placeholder="Nome do Pet"></input>
+    			</div>
+    			<div class="form-group" id="divCliente">
+    				<label for="contatoCliente">Fone Contato: </label>
+    				<input id="contatoCliente" type="text" class="form-control boxSizeDefault" placeholder="(XX) XXXXX-XXXX"></input>
+    			</div>
+    			<div class="form-group">
+    				<label for="consultaTipo">Tipo do Serviço: </label>
+    				<select class="form-control" id="select">
+    					<option value="1">Banho e tosa</option>
+    					<option value="2">Consulta com Veterinario</option>
+    					<option value="3">Adestramento</option>
+    					<option value="4">Castração</option>
+    				</select>
+    			</div>
+          <div class="form-group" id="divData">
+            <label for="calendario">Data: </label>
+  			    <input type="date" class="form-control boxSizeDefault" id="calendario" placeholder="Data da Consulta">
+  			    <div class="input-group-addon">
+  				    <span class="glyphicon glyphicon-th"></span>
+  		    	</div>
+    			</div>
         </div>
       </div>
       <div class="modal-footer">
+        <a href="/service" type="button"class="btn btn-success">Agenda</a>
         <button id="btn-checkout" type="button" class="btn btn-primary" data-dismiss="modal">Agendar</button>
         <button id="btn-close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-
       </div>
     </div>
   </div>
