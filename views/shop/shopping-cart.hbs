@@ -9,8 +9,8 @@
             <thead>
               <tr>
                 <th>Produto</th>
-                <th>Preço</th>
-                <th>Quantidade</th>
+                <th class="text-center">Preço</th>
+                <th class="text-center">Quantidade</th>
                 <th></th>
               </tr>
             </thead>
@@ -18,8 +18,8 @@
               {{# each products }}
               <tr>
                 <td>{{this.item.name}}</td>
-                <td>R${{this.price}}</td>
-                <td>{{this.qty}}</td>
+                <td class="text-center">R${{this.price}}</td>
+                <td class="text-center">{{this.qty}}</td>
                 <td style="width: 10%" class="text-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
