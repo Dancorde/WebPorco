@@ -5,24 +5,36 @@
     <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
       <div class="card">
         <div class="card-body">
-          <ul class="list-group">
-            {{# each products }}
-            <li class="list-group-item">
-              <span class="badge badge-info float-right m-2">{{this.qty}}</span>
-              <strong>{{this.item.name}}</strong>
-              <span class="label label-success">R${{this.price}}</span>
-              <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Ação <span class="caret"></span>
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/reduce/{{this.item._id}}">Remover 1</a>
-                  <a class="dropdown-item" href="/remove/{{this.item._id}}">Remover todos</a>
-                </div>
-              </div>
-            </li>
-            {{/each}}
-          </ul>
+          <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{# each products }}
+              <tr>
+                <td>{{this.item.name}}</td>
+                <td>R${{this.price}}</td>
+                <td>{{this.qty}}</td>
+                <td style="width: 10%" class="text-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Ação <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="/reduce/{{this.item._id}}">Remover 1</a>
+                      <a class="dropdown-item" href="/remove/{{this.item._id}}">Remover todos</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
         </div>
         <div class="card-footer">
           <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
@@ -40,6 +52,7 @@
       <a href="/checkout" type="button"class="btn btn-success">Finalizar compra</a>
     </div>
   </div>
+
 {{ else }}
   <div class="row text-center">
     <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
