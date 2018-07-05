@@ -12,3 +12,9 @@
   height:450px;
   overflow-y: scroll;
 }
+
+.imgCadastro {
+  border-radius: 50%;
+  display: block;
+  margin: 1.5em auto 1.5em auto;
+}

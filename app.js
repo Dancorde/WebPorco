@@ -10,6 +10,11 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
+var helpers = require('handlebars-helpers')();
+
+var handlebars = require('handlebars');
+handlebars.registerHelper('date', require('helper-date'));
+
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
@@ -23,6 +28,7 @@ require('./config/passport');
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -47,8 +53,8 @@ app.use(function(req, res, next){
   next();
 });
 
-app.use('/user', userRouter);
 app.use('/', indexRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

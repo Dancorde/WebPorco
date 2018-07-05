@@ -3,6 +3,8 @@ var router = express.Router();
 var Cart = require('../models/cart');
 var Product = require('../models/product');
 var Order = require('../models/order');
+var Service = require('../models/service');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,6 +17,8 @@ router.get('/', function(req, res, next) {
       res.render('shop/index', { title: 'Web Porco - Petshop', products: productChunks });
   });
 });
+
+
 
 router.get('/add-to-cart/:id', function(req, res, next) {
   var productId = req.params.id;

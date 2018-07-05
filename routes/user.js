@@ -10,34 +10,47 @@ var Cart = require('../models/cart');
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
+var url = 'mongodb://localhost:27017/shopping'
+
+router.get('/service', isLoggedIn, function(req, res, next) {
+
+  res.render('user/service', {csrfToken: req.csrfToken()});
+});
+
+router.post('/service', isLoggedIn, function(req, res, next) {
+  var service = {
+    user: req.user,
+    name: req.body.clientName,
+    pet: req.body.petName,
+    phone: req.body.phone,
+    service: req.body.service,
+    date: req.body.date
+  };
+
+  Service.create(service);
+
+  res.redirect('/user/profile');
+});
+
+
 router.get('/profile', isLoggedIn, function (req, res, next) {
   Order.find({user: req.user}, function(err, orders) {
-    if (err) {
-      return res.write('Error!');
-    }
-    var cart;
-    orders.forEach(function(order) {
-      cart = new Cart(order.cart);
-      order.items = cart.generateArray();
-    });
-    res.render('user/profile', { orders: orders, user: req.user });
+    Service.find({user: req.user}, function(err, services){
+      if (err) {
+        return res.write('Error!');
+      }
+      var cart;
+      orders.forEach(function(order) {
+        cart = new Cart(order.cart);
+        order.items = cart.generateArray();
+      });
+
+      res.render('user/profile', { orders: orders, services: services, user: req.user });
+    }).sort({_id: -1});
   }).sort({_id: -1});
 });
 
-router.post('/service', function(req, res, next) {
-  var service = new Service({
-    user: req.user,
-    name: req.body.nomeCliente,
-    pet: req.body.nomePet,
-    phone: req.body.contatoCliente,
-    service: req.body.select,
-    date: req.body.calendario
-  });
-  order.service(function(err, result){
-    req.flash('success', 'Serviço agendado com sucesso.');
-    res.redirect('/profile');
-  });
-});
+
 
 router.get('/logout', isLoggedIn, function (req, res, next) {
     req.logout();
@@ -58,11 +71,11 @@ router.post('/signup', passport.authenticate('local.signup', {
     failureFlash: true
 }), function (req, res, next) {
     if (req.session.oldUrl) {
-        var oldUrl = req.session.oldUrl;
-        req.session.oldUrl = null;
-        res.redirect(oldUrl);
+      var oldUrl = req.session.oldUrl;
+      req.session.oldUrl = null;
+      res.redirect(oldUrl);
     } else {
-        res.redirect('/user/profile');
+      res.redirect('/user/profile');
     }
 });
 

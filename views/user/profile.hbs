@@ -2,12 +2,13 @@
   <div class="col-md-4">
     <h1 class="text-center">Meu perfil</h1>
     <hr>
-    <img class="mx-auto d-block" src="{{user.imagePath}}" alt="profile" width="160px" height="160px"><br>
+    <img class="mx-auto d-block imgCadastro" src="{{user.imagePath}}" alt="profile" width="180px" height="180px"><br>
     <h3>{{user.name}}</h3>
     <p><i class="fa fa-envelope" aria-hidden="true"></i> {{user.email}}</p>
     <p><i class="fa fa-map-marker-alt" aria-hidden="true"></i> {{user.address}}</p>
     <p><i class="fa fa-phone" aria-hidden="true"></i> {{user.phone}}</p>
     <button class="btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#ServicesModal">Agendar Serviço</button>
+    <a href="/user/service">servico</a>
   </div>
   <div class="col-md-8 col-md-offset-2">
     <div class="card">
@@ -15,6 +16,9 @@
         <ul class="nav nav-tabs card-header-tabs pull-right"  id="myTab" role="tablist">
           <li class="nav-item">
            <a class="nav-link active" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="true">Meus Pedidos</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link" id="services-tab" data-toggle="tab" href="#services" role="tab" aria-controls="services" aria-selected="true">Meus Agendamentos</a>
           </li>
         </ul>
       </div>
@@ -40,6 +44,23 @@
               <br>
             {{/each}}
           </div>
+          <div class="tab-pane fade show" id="services" role="tabpanel" aria-labelledby="services-tab">
+            {{# each services }}
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="text-center">{{this.service}}</h5>
+                </div>
+                <div class="card-body">
+                  <p>Nome do pet: {{this.pet }}</p>
+                  <p>Dia: {{ moment this.date format="DD/MM/YYYY"}}</p>
+                </div>
+                <div class="card-footer">
+                </div>
+              </div>
+              <br>
+            {{/each}}
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -56,41 +77,50 @@
       </div>
       <div class="modal-body">
 
-        <div class="row col-md-8" id="formulario">
-    			<div class="form-group" id="divCliente">
-    				<label for="nomeCliente">Nome Cliente: </label>
-    				<input id="nomeCliente" type="text" class="form-control boxSizeDefault" placeholder="Digite o nome do Cliente"></input>
-    			</div>
-    			<div class="form-group" id="divPet">
-    				<label for="nomePet">Nome Pet: </label>
-    				<input class="form-control" id="nomePet" placeholder="Nome do Pet"></input>
-    			</div>
-    			<div class="form-group" id="divCliente">
-    				<label for="contatoCliente">Fone Contato: </label>
-    				<input id="contatoCliente" type="text" class="form-control boxSizeDefault" placeholder="(XX) XXXXX-XXXX"></input>
-    			</div>
-    			<div class="form-group">
-    				<label for="consultaTipo">Tipo do Serviço: </label>
-    				<select class="form-control" id="select">
-    					<option value="1">Banho e tosa</option>
-    					<option value="2">Consulta com Veterinario</option>
-    					<option value="3">Adestramento</option>
-    					<option value="4">Castração</option>
-    				</select>
-    			</div>
+        <form action="/profile" method="post">
+
+          <div class="form-group">
+            <label for="clientName">Nome do Cliente</label>
+            <input type="text" id="clientName" name="clientName" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="petName">Nome do pet</label>
+            <input type="text" id="petName" name="petName" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="text" id="phone" name="phone" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="service">Tipo de serviço</label>
+            <select class="form-control" id="service" name="service">
+              <option value="Banho e tosa">Banho e tosa</option>
+              <option value="Consulta com Veterinario">Consulta com Veterinario</option>
+              <option value="Adestramento">Adestramento</option>
+              <option value="Castração">Castração</option>
+            </select>
+          </div>
+
           <div class="form-group" id="divData">
-            <label for="calendario">Data: </label>
-  			    <input type="date" class="form-control boxSizeDefault" id="calendario" placeholder="Data da Consulta">
-  			    <div class="input-group-addon">
-  				    <span class="glyphicon glyphicon-th"></span>
-  		    	</div>
-    			</div>
-        </div>
+            <label for="date">Data: </label>
+            <input type="date" name="date" class="form-control boxSizeDefault" id="date" placeholder="Data da Consulta">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-th"></span>
+            </div>
+          </div>
+          <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+          <!-- <button type="submit" class="btn btn-primary">Agendar</button> -->
+          <div class="modal-footer">
+            <button id="btn-checkout" type="submit" class="btn btn-primary" data-toggle="modal">Agendar</button>
+            <button id="btn-close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
       </div>
-      <div class="modal-footer">
-        <button id="btn-checkout" type="button" class="btn btn-primary" data-dismiss="modal">Agendar</button>
-        <button id="btn-close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      </div>
+
     </div>
   </div>
 </div>
