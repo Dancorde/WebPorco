@@ -24,6 +24,7 @@ router.post('/service', isLoggedIn, function(req, res, next) {
     pet: req.body.petName,
     phone: req.body.phone,
     service: req.body.service,
+    time: req.body.time,
     date: req.body.date
   };
 
@@ -45,7 +46,7 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
         order.items = cart.generateArray();
       });
 
-      res.render('user/profile', { orders: orders, services: services, user: req.user });
+      res.render('user/profile', { orders: orders, services: services, user: req.user, csrfToken: req.csrfToken() });
     }).sort({_id: -1});
   }).sort({_id: -1});
 });
