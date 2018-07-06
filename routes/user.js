@@ -73,19 +73,28 @@ router.get('/service', isLoggedIn, function(req, res, next) {
 });
 
 router.post('/service', isLoggedIn, function(req, res, next) {
-  var service = {
-    user: req.user,
-    name: req.body.clientName,
-    pet: req.body.petName,
-    phone: req.body.phone,
-    service: req.body.service,
-    time: req.body.time,
-    date: req.body.date
-  };
 
-  Service.create(service);
+  ServiceType.find({name: req.body.service}, function(err, serviceTypes){
 
-  res.redirect('/user/profile');
+    price = serviceTypes[0].price;
+    console.log(price);
+
+    var service = {
+       user: req.user,
+       name: req.body.clientName,
+       pet: req.body.petName,
+       phone: req.body.phone,
+       service: req.body.service,
+       time: req.body.time,
+       date: req.body.date,
+       price: price
+     };
+
+     Service.create(service);
+
+     res.redirect('/user/profile');
+  });
+
 });
 
 

@@ -57,6 +57,7 @@
                   <p>Dia: {{moment this.date format="DD/MM/YYYY"}} às {{this.time}}</p>
                 </div>
                 <div class="card-footer">
+                  <strong>Total: R${{ this.price }}</strong>
                 </div>
               </div>
               <br>
@@ -113,7 +114,11 @@
 
           <div class="form-group">
             <label for="petName">Nome do pet</label>
-            <input type="text" id="petName" name="petName" class="form-control">
+            <select class="form-control" id="petName" name="petName">
+              {{# each pets}}
+                <option value="{{this.name}}">{{this.name}}</option>
+              {{/each}}
+            </select>
           </div>
 
           <div class="form-group">
@@ -143,6 +148,9 @@
             </div>
           </div>
 
+          {{# each serviceTypes}}
+          <input type="hidden" name="{{this.name}}Price" value="{{this.price}}">
+          {{/each}}
           <input type="hidden" name="_csrf" value="{{ csrfToken }}">
 
           <!-- <button type="submit" class="btn btn-primary">Agendar</button> -->

@@ -9,6 +9,7 @@ var schema = new Schema({
   service: {type: String},
   time: {type: String},
   date: {type: Date, required: true},
+  price: {type: Number},
 });
 
 module.exports = mongoose.model('Service', schema);
