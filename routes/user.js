@@ -35,20 +35,29 @@ router.post('/service', isLoggedIn, function(req, res, next) {
 
 
 router.get('/profile', isLoggedIn, function (req, res, next) {
-  Order.find({user: req.user}, function(err, orders) {
-    Service.find({user: req.user}, function(err, services){
-      if (err) {
-        return res.write('Error!');
-      }
-      var cart;
-      orders.forEach(function(order) {
-        cart = new Cart(order.cart);
-        order.items = cart.generateArray();
-      });
+  // if (!req.user.admin) {
+    Order.find({user: req.user}, function(err, orders) {
+      Service.find({user: req.user}, function(err, services){
+        if (err) {
+          return res.write('Error!');
+        }
+        var cart;
+        orders.forEach(function(order) {
+          cart = new Cart(order.cart);
+          order.items = cart.generateArray();
+        });
 
-      res.render('user/profile', { orders: orders, services: services, user: req.user, csrfToken: req.csrfToken() });
+        res.render('user/profile', { orders: orders, services: services, user: req.user, csrfToken: req.csrfToken() });
+      }).sort({_id: -1});
     }).sort({_id: -1});
-  }).sort({_id: -1});
+  // } else {
+  //   Service.find(function(err, services){
+  //     if (err) {
+  //       return res.write('Error!');
+  //     }
+  //     res.render('user/admin', {services: services});
+  //   });
+  // }
 });
 
 

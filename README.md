@@ -9,10 +9,10 @@ Antes de inicializar o servidor é necessário instalar todas as dependências d
 $ npm install
 ```
 
-Para popular o banco de dados com alguns produtos entre na pasta seed digite o seguinte comando
+Para popular o banco de dados com alguns produtos e o administrador entre digite o seguinte comando
 
 ```console
-$ node product-seeder.js
+$ node seed/seeder.js
 ```
 
 Para inicializar o servidor usamos o seguinte comando:

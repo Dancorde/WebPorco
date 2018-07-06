@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
+SALT_WORK_FACTOR = 10;
 
 var userSchema = new Schema({
   email: {type: String, required: true},
@@ -8,7 +9,8 @@ var userSchema = new Schema({
   name: {type: String, required: true},
   address: {type: String, required: true},
   phone: {type: String, required: true},
-  imagePath: {type: String, required: true}
+  imagePath: {type: String, required: true},
+  admin: {type: Boolean, default: false},
 });
 
 userSchema.methods.encryptPassword = function(password) {
@@ -18,5 +20,8 @@ userSchema.methods.encryptPassword = function(password) {
 userSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
+
+
+
 
 module.exports = mongoose.model('User', userSchema);

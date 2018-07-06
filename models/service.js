@@ -8,7 +8,9 @@ var schema = new Schema({
   phone: {type: String},
   service: {type: String},
   time: {type: String},
-  date: {type: Date, required: true},
+  imagePath: {type: String, required: true},
+  date: {type: Date},
+  price: {type: Number}
 });
 
 module.exports = mongoose.model('Service', schema);

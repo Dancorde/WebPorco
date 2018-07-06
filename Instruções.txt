@@ -1,0 +1,19 @@
+Primeiro é necessário instalar as dependências do Node.js digitando o seguinte
+comando no terminal:
+
+npm install
+
+Para popular o banco de dados com alguns produtos e o administrador entre
+digite o seguinte comando:
+
+node seed/seeder.js
+
+Agora que já temos alguns produtos e o administrador basta digitar npm start no
+terminal e acessar localhost:3000 pelo browser
+
+É possível cadastrar usuários acessando o menu minha conta e registrar-se, se
+já possuir o cadastro basta digitar o email e senha cadastrados para logar.
+
+Para acessar como administrador basta digitar admin@email.com e a senha é admin.
+
+Como administrador você pode adicionar produtos e consultar o lucro total.
