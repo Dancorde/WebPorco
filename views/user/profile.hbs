@@ -19,6 +19,9 @@
           <li class="nav-item">
            <a class="nav-link" id="services-tab" data-toggle="tab" href="#services" role="tab" aria-controls="services" aria-selected="true">Meus Agendamentos</a>
           </li>
+          <li class="nav-item">
+           <a class="nav-link" id="pets-tab" data-toggle="tab" href="#pets" role="tab" aria-controls="pets" aria-selected="true">Meus Pets</a>
+          </li>
         </ul>
       </div>
       <div class="card-body scroll">
@@ -59,6 +62,31 @@
               <br>
             {{/each}}
           </div>
+          <div class="tab-pane fade show" id="pets" role="tabpanel" aria-labelledby="services-tab">
+            <div class="row">
+              <div class="col-12 text-center">
+                <a href="/user/pet/new" class="btn btn-primary">Adicionar Pet</a>
+                <br><br>
+              </div>
+            </div>
+            <div class="row">
+              {{# each pets}}
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header text-center">
+                    <img class="card-img-top" src="{{ this.imagePath }}" alt="...">
+                  </div>
+                  <div class="card-body">
+                    <p>Nome do pet: {{this.name}}</p>
+                    <p>Idade: {{this.age}}</p>
+                    <p>Raça: {{this.race}}</p>
+                  </div>
+                </div>
+                <br>
+              </div>
+              {{/each}}
+            </div>
+          </div>
         </div>
         </div>
       </div>
@@ -97,7 +125,7 @@
             <label for="service">Tipo de serviço</label>
             <select class="form-control" id="service" name="service">
               {{# each serviceTypes}}
-                <option value="{{this.name}}">{{this.name}}</option>
+                <option value="{{this.name}}">{{this.name}} (R${{this.price}})</option>
               {{/each}}
             </select>
           </div>

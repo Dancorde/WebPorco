@@ -1,0 +1,32 @@
+<div class="row justify-content-center align-items-center">
+  <div class="col-md-4 col-offset-4">
+    <h1>Adicionar Serviço</h1>
+    <form action="/user/service/new" method="post">
+
+      <div class="form-group">
+        <label for="serviceName">Nome do Serviço</label>
+        <input type="text" id="serviceName" name="serviceName" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="serviceDesc">Descrição do Serviço</label>
+        <input type="text" id="serviceDesc" name="serviceDesc" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="servicePrice">Valor do Serviço</label>
+        <input type="number" id="servicePrice" name="servicePrice" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="serviceImage">Imagem do Serviço (url)</label>
+        <input type="url" id="serviceImage" name="serviceImage" class="form-control">
+      </div>
+
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+      <button id="btn-checkout" type="submit" class="btn btn-primary" data-toggle="modal">Salvar</button>
+      <a href="/user/profile" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+</div>

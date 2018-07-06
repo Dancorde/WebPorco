@@ -8,6 +8,7 @@ var Service = require('../models/service');
 var Cart = require('../models/cart');
 var Product = require('../models/product');
 var ServiceType = require('../models/serviceType');
+var Pet = require('../models/pet');
 
 
 var csrfProtection = csrf();
@@ -29,6 +30,40 @@ router.post('/product/new', isLoggedIn, function(req, res, next) {
   };
 
   Product.create(product);
+
+  res.redirect('/user/profile');
+});
+
+router.get('/service/new', isLoggedIn, function(req, res, next) {
+  res.render('shop/new_service', {csrfToken: req.csrfToken()});
+});
+
+router.post('/service/new', isLoggedIn, function(req, res, next) {
+  var service = {
+    name: req.body.serviceName,
+    description: req.body.serviceDesc,
+    price: req.body.servicePrice,
+    imagePath: req.body.serviceImage
+  };
+
+  ServiceType.create(service);
+
+  res.redirect('/user/profile');
+});
+
+router.get('/pet/new', isLoggedIn, function(req, res, next) {
+  res.render('pet/new', {csrfToken: req.csrfToken()});
+});
+
+router.post('/pet/new', isLoggedIn, function(req, res, next) {
+  var pet = {
+    name: req.body.petName,
+    race: req.body.petRace,
+    age: req.body.petAge,
+    imagePath: req.body.petImage
+  };
+
+  Pet.create(pet);
 
   res.redirect('/user/profile');
 });
@@ -59,21 +94,24 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
     Order.find({user: req.user}, function(err, orders) {
       Service.find({user: req.user}, function(err, services){
         ServiceType.find(function(err, serviceTypes){
-          if (err) {
-            return res.write('Error!');
-          }
-          var cart;
-          orders.forEach(function(order) {
-            cart = new Cart(order.cart);
-            order.items = cart.generateArray();
-          });
+          Pet.find(function(err, pets){
+            if (err) {
+              return res.write('Error!');
+            }
+            var cart;
+            orders.forEach(function(order) {
+              cart = new Cart(order.cart);
+              order.items = cart.generateArray();
+            });
 
-          res.render('user/profile', { orders: orders,
-                                      services: services,
-                                      user: req.user,
-                                      serviceTypes: serviceTypes,
-                                      csrfToken: req.csrfToken()
-                                    });
+            res.render('user/profile', { orders: orders,
+                                        services: services,
+                                        user: req.user,
+                                        serviceTypes: serviceTypes,
+                                        pets: pets,
+                                        csrfToken: req.csrfToken()
+                                      });
+          });
         }).sort({name: 1});
       }).sort({_id: -1});
     }).sort({_id: -1});

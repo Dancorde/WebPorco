@@ -1,0 +1,32 @@
+<div class="row justify-content-center align-items-center">
+  <div class="col-md-4 col-offset-4">
+    <h1>Adicionar Serviço</h1>
+    <form action="/user/pet/new" method="post">
+
+      <div class="form-group">
+        <label for="petName">Nome do Pet</label>
+        <input type="text" id="petName" name="petName" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="petRace">Raça do Pet</label>
+        <input type="text" id="petRace" name="petRace" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="petAge">Idade do Pet</label>
+        <input type="number" id="petAge" name="petAge" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="petImage">Imagem do Pet (url)</label>
+        <input type="url" id="petImage" name="petImage" class="form-control">
+      </div>
+
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+      <button id="btn-checkout" type="submit" class="btn btn-primary" data-toggle="modal">Salvar</button>
+      <a href="/user/profile" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+</div>
