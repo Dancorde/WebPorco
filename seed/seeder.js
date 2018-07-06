@@ -1,11 +1,15 @@
 var bcrypt = require('bcrypt-nodejs');
+var mongoose = require('mongoose');
 
 var Product = require('../models/product');
 var User = require('../models/user');
 
-var mongoose = require('mongoose');
+var databaseURL = 'mongodb://localhost:27017/shopping';
 
-mongoose.connect('mongodb://localhost:27017/shopping');
+var con = mongoose.connect(databaseURL);
+
+// Apaga todo o banco antes de seedar
+mongoose.connection.dropDatabase(function(err, result){});
 
 var seed = [
   new Product({
