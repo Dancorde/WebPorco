@@ -3,12 +3,14 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = new Schema({
+  username: {type: String, required: true, unique: true},
   email: {type: String, required: true},
   password: {type: String, required: true},
   name: {type: String, required: true},
   address: {type: String, required: true},
   phone: {type: String, required: true},
-  imagePath: {type: String, required: true}
+  imagePath: {type: String, required: true},
+  admin: {type: Boolean, default: false}
 });
 
 userSchema.methods.encryptPassword = function(password) {

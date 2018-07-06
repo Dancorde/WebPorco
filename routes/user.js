@@ -6,14 +6,33 @@ var passport = require('passport');
 var Order = require('../models/order');
 var Service = require('../models/service');
 var Cart = require('../models/cart');
+var Product = require('../models/product');
+
 
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
 var url = 'mongodb://localhost:27017/shopping'
 
-router.get('/service', isLoggedIn, function(req, res, next) {
+router.get('/product/new', isLoggedIn, function(req, res, next) {
+  res.render('shop/new_product', {csrfToken: req.csrfToken()});
+});
 
+router.post('/product/new', isLoggedIn, function(req, res, next) {
+  var product = {
+    name: req.body.productName,
+    description: req.body.productDesc,
+    price: req.body.productPrice,
+    stored: req.body.productStored,
+    imagePath: req.body.productImage
+  };
+
+  Product.create(product);
+
+  res.redirect('/user/profile');
+});
+
+router.get('/service', isLoggedIn, function(req, res, next) {
   res.render('user/service', {csrfToken: req.csrfToken()});
 });
 
@@ -35,20 +54,30 @@ router.post('/service', isLoggedIn, function(req, res, next) {
 
 
 router.get('/profile', isLoggedIn, function (req, res, next) {
-  Order.find({user: req.user}, function(err, orders) {
-    Service.find({user: req.user}, function(err, services){
-      if (err) {
-        return res.write('Error!');
-      }
-      var cart;
-      orders.forEach(function(order) {
-        cart = new Cart(order.cart);
-        order.items = cart.generateArray();
-      });
+  if (!req.user.admin) {
+    Order.find({user: req.user}, function(err, orders) {
+      Service.find({user: req.user}, function(err, services){
+        if (err) {
+          return res.write('Error!');
+        }
+        var cart;
+        orders.forEach(function(order) {
+          cart = new Cart(order.cart);
+          order.items = cart.generateArray();
+        });
 
-      res.render('user/profile', { orders: orders, services: services, user: req.user, csrfToken: req.csrfToken() });
+        res.render('user/profile', { orders: orders, services: services, user: req.user, csrfToken: req.csrfToken() });
+      }).sort({_id: -1});
     }).sort({_id: -1});
-  }).sort({_id: -1});
+  } else {
+    Service.find(function(err, services){
+      Product.find(function(err, products){
+        res.render('user/admin', {services: services, products: products});
+      });
+    });
+  }
+
+
 });
 
 
