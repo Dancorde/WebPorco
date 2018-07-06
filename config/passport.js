@@ -13,11 +13,11 @@ passport.deserializeUser(function(id, done){
 });
 
 passport.use('local.signup', new LocalStrategy({
-  usernameField:'email',
+  usernameField:'username',
   password: 'password',
   passReqToCallback: true
-}, function(req, email, password, done) {
-  req.checkBody('email', 'E-mail inválido').notEmpty().isEmail();
+}, function(req, username, password, done) {
+  req.checkBody('username', 'E-mail inválido').notEmpty()
   req.checkBody('password', 'Senha inválida').notEmpty().isLength({min:4});
   var errors = req.validationErrors();
   if (errors) {
@@ -27,7 +27,7 @@ passport.use('local.signup', new LocalStrategy({
     });
     return done(null, false, req.flash('error', messages));
   }
-  User.findOne({'email': email}, function(err, user) {
+  User.findOne({'username': username}, function(err, user) {
     if (err) {
       return done(err);
     }
@@ -35,7 +35,8 @@ passport.use('local.signup', new LocalStrategy({
       return done(null, false, {message: 'Email já esta sendo usado.'});
     }
     var newUser = new User();
-    newUser.email = email;
+    newUser.username = username;
+    newUser.email = req.body.email;
     newUser.password = newUser.encryptPassword(password);
     newUser.name = req.body.name;
     newUser.address = req.body.address;
@@ -52,11 +53,11 @@ passport.use('local.signup', new LocalStrategy({
 }));
 
 passport.use('local.signin', new LocalStrategy({
-  usernameField:'email',
+  usernameField:'username',
   password: 'password',
   passReqToCallback: true
-}, function(req, email, password, done) {
-  req.checkBody('email', 'E-mail inválido').notEmpty().isEmail();
+}, function(req, username, password, done) {
+  req.checkBody('username', 'Usuário inválido').notEmpty();
   req.checkBody('password', 'Senha inválida').notEmpty();
   var errors = req.validationErrors();
   if (errors) {
@@ -66,7 +67,7 @@ passport.use('local.signin', new LocalStrategy({
     });
     return done(null, false, req.flash('error', messages));
   }
-  User.findOne({'email': email}, function(err, user) {
+  User.findOne({'username': username}, function(err, user) {
     if (err) {
       return done(err);
     }
