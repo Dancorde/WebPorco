@@ -7,6 +7,7 @@ var Order = require('../models/order');
 var Service = require('../models/service');
 var Cart = require('../models/cart');
 var Product = require('../models/product');
+var ServiceType = require('../models/serviceType');
 
 
 var csrfProtection = csrf();
@@ -57,22 +58,31 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
   if (!req.user.admin) {
     Order.find({user: req.user}, function(err, orders) {
       Service.find({user: req.user}, function(err, services){
-        if (err) {
-          return res.write('Error!');
-        }
-        var cart;
-        orders.forEach(function(order) {
-          cart = new Cart(order.cart);
-          order.items = cart.generateArray();
-        });
+        ServiceType.find(function(err, serviceTypes){
+          if (err) {
+            return res.write('Error!');
+          }
+          var cart;
+          orders.forEach(function(order) {
+            cart = new Cart(order.cart);
+            order.items = cart.generateArray();
+          });
 
-        res.render('user/profile', { orders: orders, services: services, user: req.user, csrfToken: req.csrfToken() });
+          res.render('user/profile', { orders: orders,
+                                      services: services,
+                                      user: req.user,
+                                      serviceTypes: serviceTypes,
+                                      csrfToken: req.csrfToken()
+                                    });
+        }).sort({name: 1});
       }).sort({_id: -1});
     }).sort({_id: -1});
   } else {
     Service.find(function(err, services){
       Product.find(function(err, products){
-        res.render('user/admin', {services: services, products: products});
+        ServiceType.find(function(err, serviceTypes){
+          res.render('user/admin', {services: services, products: products, serviceTypes: serviceTypes});
+        });
       });
     });
   }

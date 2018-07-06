@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 
 var Product = require('../models/product');
 var User = require('../models/user');
+var Service = require('../models/serviceType');
 
 var databaseURL = 'mongodb://localhost:27017/shopping';
 
@@ -39,6 +40,18 @@ var seed = [
     description: 'Saco de ração premium para gato de 5Kg.',
     price: 17,
     stored: 67
+  }),
+  new Service({
+    name: 'Banho e Tosa',
+    imagePath: 'http://revistadovale.net/wp-content/uploads/2016/04/Estetica-premium-770x513.png',
+    description: 'Banho e Tosa.',
+    price: 50,
+  }),
+  new Service({
+    name: 'Consulta',
+    imagePath: 'https://www.animalepetshop.com.br/wp-content/uploads/2014/11/veterinario-cao-300x225.jpg',
+    description: 'Consulta com veterinário.',
+    price: 80,
   }),
   new User({
     username: "admin",
