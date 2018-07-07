@@ -4,7 +4,7 @@ var Cart = require('../models/cart');
 var Product = require('../models/product');
 var Order = require('../models/order');
 var Service = require('../models/service');
-
+var ServiceType = require('../models/serviceType');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,8 +17,6 @@ router.get('/', function(req, res, next) {
       res.render('shop/index', { title: 'Web Porco - Petshop', products: productChunks });
   });
 });
-
-
 
 router.get('/add-to-cart/:id', function(req, res, next) {
   var productId = req.params.id;
@@ -46,10 +44,8 @@ router.get('/reduce/:id', function(req, res, next) {
     cart.reduceByOne(productId);
     req.session.cart = cart;
     res.redirect('/shopping-cart');
-    // res.send({product: product, productsCart: cart.generateArray(), totalPrice: cart.totalPrice});
   });
 });
-
 
 router.get('/remove/:id', function(req, res, next) {
   var productId = req.params.id;
@@ -63,11 +59,19 @@ router.get('/remove/:id', function(req, res, next) {
     cart.removeItem(productId);
     req.session.cart = cart;
     res.redirect('/shopping-cart');
-    // res.send({product: product, productsCart: cart.generateArray(), totalPrice: cart.totalPrice});
+  });
+});
+
+router.delete('/product/:id', function(req, res, next) {
+
+  Product.remove({_id: req.params.id}, function(err){
+    if (err) {
+      console.log("erro");
+    }
+    res.redirect('user/profile');
   });
 
 });
-
 
 router.get('/shopping-cart', function(req, res, next) {
   if (!req.session.cart) {

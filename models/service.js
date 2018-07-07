@@ -10,6 +10,7 @@ var schema = new Schema({
   time: {type: String},
   date: {type: Date, required: true},
   price: {type: Number},
+  imagePath: {type: String},
 });
 
 module.exports = mongoose.model('Service', schema);

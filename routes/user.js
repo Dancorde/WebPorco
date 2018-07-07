@@ -17,7 +17,7 @@ router.use(csrfProtection);
 var url = 'mongodb://localhost:27017/shopping'
 
 router.get('/product/new', isLoggedIn, function(req, res, next) {
-  res.render('shop/new_product', {csrfToken: req.csrfToken()});
+  res.render('product/new', {csrfToken: req.csrfToken()});
 });
 
 router.post('/product/new', isLoggedIn, function(req, res, next) {
@@ -34,8 +34,34 @@ router.post('/product/new', isLoggedIn, function(req, res, next) {
   res.redirect('/user/profile');
 });
 
+router.get('/product/:id/edit', function(req, res, next) {
+  var productId = req.params.id;
+  Product.findById(productId, function (err, product) {
+    if (err) {
+      return res.redirect('/user/profile');
+    }
+
+    res.render('product/edit', {product: product, csrfToken: req.csrfToken()});
+  });
+});
+
+router.post('/product/edit/:id', function(req, res, next) {
+  product = {
+    name: req.body.productName,
+    description: req.body.productDesc,
+    price: req.body.productPrice,
+    stored: req.body.productStored,
+    imagePath: req.body.productImage
+  }
+
+  Product.update({_id: req.params.id}, {$set: product }, function(err, docs){
+    res.redirect('/user/profile')
+  });
+
+});
+
 router.get('/service/new', isLoggedIn, function(req, res, next) {
-  res.render('shop/new_service', {csrfToken: req.csrfToken()});
+  res.render('service/new', {csrfToken: req.csrfToken()});
 });
 
 router.post('/service/new', isLoggedIn, function(req, res, next) {
@@ -49,6 +75,31 @@ router.post('/service/new', isLoggedIn, function(req, res, next) {
   ServiceType.create(service);
 
   res.redirect('/user/profile');
+});
+
+router.get('/service/:id/edit', function(req, res, next) {
+  var productId = req.params.id;
+  ServiceType.findById(productId, function (err, service) {
+    if (err) {
+      return res.redirect('/user/profile');
+    }
+
+    res.render('service/edit', {service: service, csrfToken: req.csrfToken()});
+  });
+});
+
+router.post('/service/edit/:id', function(req, res, next) {
+  service = {
+    name: req.body.serviceName,
+    description: req.body.serviceDesc,
+    price: req.body.servicePrice,
+    imagePath: req.body.serviceImage
+  }
+
+  ServiceType.update({_id: req.params.id}, {$set: service }, function(err, docs){
+    res.redirect('/user/profile')
+  });
+
 });
 
 router.get('/pet/new', isLoggedIn, function(req, res, next) {
@@ -77,7 +128,7 @@ router.post('/service', isLoggedIn, function(req, res, next) {
   ServiceType.find({name: req.body.service}, function(err, serviceTypes){
 
     price = serviceTypes[0].price;
-    console.log(price);
+    img = serviceTypes[0].imagePath;
 
     var service = {
        user: req.user,
@@ -87,7 +138,8 @@ router.post('/service', isLoggedIn, function(req, res, next) {
        service: req.body.service,
        time: req.body.time,
        date: req.body.date,
-       price: price
+       price: price,
+       imagePath: img
      };
 
      Service.create(service);

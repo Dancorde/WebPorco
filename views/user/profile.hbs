@@ -53,8 +53,15 @@
                   <h5 class="text-center">{{this.service}}</h5>
                 </div>
                 <div class="card-body">
-                  <p>Nome do pet: {{this.pet }}</p>
-                  <p>Dia: {{moment this.date format="DD/MM/YYYY"}} às {{this.time}}</p>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <img class="" src="{{this.imagePath}}" alt="Serviço"><br>
+                    </div>
+                    <div class="col-md-6">
+                      <p>Nome do pet: {{this.pet}}</p>
+                      <p>Dia: {{moment this.date format="DD/MM/YYYY"}} às {{this.time}}</p>
+                    </div>
+                  </div>
                 </div>
                 <div class="card-footer">
                   <strong>Total: R${{ this.price }}</strong>
