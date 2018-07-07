@@ -180,7 +180,15 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
     Service.find(function(err, services){
       Product.find(function(err, products){
         ServiceType.find(function(err, serviceTypes){
-          res.render('user/admin', {services: services, products: products, serviceTypes: serviceTypes});
+          var count = 0;
+          ServiceType.count({}, function(err, servicesCount){
+            count = servicesCount
+          });
+          res.render('user/admin', {services: services,
+            products: products,
+            serviceTypes: serviceTypes,
+            servicesCount: count,
+          });
         });
       });
     });
