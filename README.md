@@ -2,37 +2,44 @@
 
 ![npm](https://img.shields.io/npm/v/npm.svg)
 ![node](https://img.shields.io/badge/node-v8.11.2-green.svg)
+![mongo](https://img.shields.io/badge/mongodb-v3.2.20-green.svg)
+
+## Pré-requisitos
+É necessário ter instalado o [Node.js](https://nodejs.org/en/) e o [MongoDb](https://www.mongodb.com/)
+
+## Instalação
 
 Antes de inicializar o servidor é necessário instalar todas as dependências digitando no console
 
-```console
+```
 $ npm install
 ```
 
 Para popular o banco de dados com alguns produtos, o adiministrador e aguns serviços, digite o seguinte comando
 
-```console
+```
 $ node seed/seeder.js
 ```
 
 Para inicializar o servidor usamos o seguinte comando:
 
-```console
+```
 $ npm start
 ```
 
 Com o servidor rodando basta digitar no browser
 
-```console
+```
 $ localhost:3000
 ```
+
+## Utilização
 
 ### Administardor
 Para acessar como administrador acesse a página de login pela navbar e entre com as informações
 
-```console
-Usuário: admin
-Senha: admin
+```
+Usuário: admin | Senha: admin
 ```
 
 O administrador pode acessar as informações administrativas no perfil de usuário. Lá ele pode cadastrar e editar produtos e serviços

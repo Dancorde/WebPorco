@@ -15,7 +15,6 @@ var helpers = require('handlebars-helpers')();
 var handlebars = require('handlebars');
 handlebars.registerHelper('date', require('helper-date'));
 
-
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
 
