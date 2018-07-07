@@ -30,7 +30,7 @@ $ localhost:3000
 ### Administardor
 Para acessar como administrador acesse a página de login pela navbar e entre com as informações
 
-```
+```console
 Usuário: admin
 Senha: admin
 ```
