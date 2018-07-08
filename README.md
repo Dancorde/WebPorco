@@ -35,7 +35,7 @@ $ localhost:3000
 
 ## Utilização
 
-### Administardor
+### Administrador
 Para acessar como administrador acesse a página de login pela navbar e entre com as informações
 
 ```
